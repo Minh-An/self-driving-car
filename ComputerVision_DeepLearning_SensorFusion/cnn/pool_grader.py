@@ -31,7 +31,7 @@ def get_result(out):
             for dn, ov, tv in zip(dim_names, our_shape, their_shape):
                 if ov != tv:
                     # dimension mismatch
-                    feedback = '{} dimension: mismatch we have {}, you have {}'.format(dn, ov, tv)
+                    feedback = f'{dn} dimension: mismatch we have {ov}, you have {tv}'
             if np.alltrue(our_shape == their_shape):
                 did_pass = True
             else:
@@ -40,9 +40,9 @@ def get_result(out):
             did_pass = False
             
         if did_pass:
-            feedback = 'Great Job!' + ' Your output shape is: {}'.format(their_shape)
+            feedback = f'Great Job!' + f' Your output shape is: {their_shape}'
         else:
-            feedback = 'Incorrect!' + ' Correct shape is: {}'.format(our_shape)+ 'Your output shape is: {}'.format(their_shape)
+            feedback = f'Incorrect!' + f' Correct shape is: {our_shape}'+ f'Your output shape is: {their_shape}'
             
     result.update(feedback = feedback)
     return result
@@ -62,7 +62,7 @@ def run_grader(out):
     feedback = result.get('feedback')
     comment = result.get('comment')
 
-    print("{}\n{}\n".format(feedback, comment))
+    print(f"{feedback}\n{comment}\n")
 
 
 
